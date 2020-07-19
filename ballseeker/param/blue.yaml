@@ -1,0 +1,15 @@
+b_min: 0
+g_min: 0
+r_min: 0
+
+b_max: 0
+g_max: 0
+r_max: 0
+
+h_min: 85
+s_min: 129
+v_min: 128
+
+h_max: 124
+s_max: 255
+v_max: 255

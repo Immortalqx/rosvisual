@@ -1,0 +1,10 @@
+<launch>
+
+    <node
+		pkg= "ballseeker"
+		name="quickseeknode" 
+		type="seekernode"
+	/>
+
+</launch>
+
