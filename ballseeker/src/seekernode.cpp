@@ -13,7 +13,6 @@ int main(int argc,char** argv)
     ros::NodeHandle n;
 
     seek icu(1);
-    //icu.creatbar();
 
     while(ros::ok())
     {

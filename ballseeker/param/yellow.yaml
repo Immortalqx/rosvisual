@@ -1,15 +1,12 @@
-b_min: 0
-g_min: 0
-r_min: 0
-
-b_max: 0
-g_max: 0
-r_max: 0
-
-h_min: 18
-s_min: 56
-v_min: 177
-
-h_max: 71
-s_max: 187
+s_max: 231
+b_max: 182
+r_max: 255
+h_min: 15
+g_min: 193
+g_max: 255
+r_min: 193
+v_min: 220
+s_min: 47
+h_max: 35
 v_max: 255
+b_min: 16

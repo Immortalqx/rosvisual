@@ -16,14 +16,12 @@ const int no_save=3;
 const int hsv_process=0;
 const int bgr_process=1;
 
-class seek
-{
+class seek {
 public:
-    seek(int service_id=0);
-    ~seek();                //虽然我也不知道析构啥，先写着
+    seek(int service_id = 0);
+
     void getstart();        //从摄像头获取图片、双边滤波、转化hsv
     void display();         //找球并展示最终效果（调试时可以展示中间效果）
-    void creatbar();        //创建滑动条调整参数(之后不会再用)
 
 private:
     int bgr_min[3];
@@ -35,9 +33,9 @@ private:
     cv::Mat bgr_dst;
     cv::Mat hsv_dst;
 
-    cv::Mat see_red;
-    cv::Mat see_yellow;
-    cv::Mat see_blue;
+    cv::Mat see_red[3];
+    cv::Mat see_yellow[3];
+    cv::Mat see_blue[3];
 
     cv::VideoCapture capture;
 
@@ -46,17 +44,18 @@ private:
 
     dynamic_reconfigure::Server<ballseeker::SetParamConfig> server;
     dynamic_reconfigure::Server<ballseeker::SetParamConfig>::CallbackType f;
+
     static int save_type;
     static int dynamic_bgr_min[3];
     static int dynamic_bgr_max[3];
     static int dynamic_hsv_min[3];
     static int dynamic_hsv_max[3];
 
-    void updateparam(int type_of_ball);  
+    void updateparam(int type_of_ball = 3);
     void saveparam();
-    bool isSetParam(int type_of_ball);         
-    void process(cv::Mat& input,int type_of_ball,int type_of_process=0);
+    bool isSetParam(int type_of_ball = 3);
 
-    static void on_change(int, void*);
-    static void dynamic_callback(ballseeker::SetParamConfig &config, uint32_t level); 
+    void process(cv::Mat *input, int type_of_ball);
+
+    static void dynamic_callback(ballseeker::SetParamConfig &config, uint32_t level);
 };
